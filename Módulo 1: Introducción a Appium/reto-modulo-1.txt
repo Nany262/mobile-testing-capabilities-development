@@ -1,0 +1,19 @@
+INICIAR aplicación de YouTube
+ESPERAR que la aplicación cargue
+
+// Buscar el video
+ENCONTRAR barra de búsqueda POR id "search_edit_text"
+CLICK en barra de búsqueda
+ESCRIBIR "WebdriverIO tutorial"
+ENCONTRAR botón de búsqueda POR id "menu_item_1"
+CLICK en botón de búsqueda
+
+// Seleccionar un video
+ESPERAR que aparezcan los resultados
+ENCONTRAR primer video POR id "thumbnail"
+CLICK en el primer video
+
+// Reproducir video
+ESPERAR que cargue el reproductor
+ENCONTRAR botón de reproducción POR id "player_control_play_pause_replay_button"
+CLICK en botón de reproducción SI está en estado "Play"
