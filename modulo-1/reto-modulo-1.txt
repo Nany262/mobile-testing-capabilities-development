@@ -2,6 +2,7 @@ INICIO
 
 ABRIR aplicación YouTube
 ESPERAR hasta que cargue la pantalla principal
+ACEPTAR permisos de notificaciones
 
 // Buscar un video
 ENCONTRAR barraBusqueda
@@ -10,15 +11,17 @@ ESCRIBIR "WebdriverIO tutorial"
 CLICK botonBuscar
 
 // Seleccionar y reproducir un video
-ESPERAR resultadosDeBusqueda
+ESPERAR sugerenciaBusqueda
+CLICK sugerenciaElegida
 
 PARA i = 1 HASTA nVideos EN resultadosDeBusqueda
     SI video[i] ES visible EN pantalla
         CLICK video[i]
-        ESPERAR reproductorDeVideo
-        SI botonReproducir ESTÁ disponible Y estado = "Play"
+        SI botonReproducir ESTÁ disponible
             CLICK botonReproducir
         FIN SI
+            ESPERAR reproductorDeVideo
+            VALIDAR reproduccion video
         SALIR DEL BUCLE
     FIN SI
 FIN PARA
