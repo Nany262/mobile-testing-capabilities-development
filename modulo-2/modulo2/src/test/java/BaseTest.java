@@ -32,12 +32,8 @@ public class BaseTest {
                 .setDeviceName("emulator-5554") // Cambia por el nombre del emulador activo
                 .setPlatformName("Android")
                 .setAutomationName("UiAutomator2")
-                /*
-                 * --- Pseudocode Start ---
-                 *  ABRIR aplicación YouTube
-                 *  ESPERAR hasta que cargue la pantalla principal
-                 * --- Pseudocode End ---
-                 */
+                 // ABRIR aplicación YouTube
+                 // ESPERAR hasta que cargue la pantalla principal
                 .setAppPackage("com.google.android.youtube")
                 .setAppActivity("com.google.android.youtube.HomeActivity");
 
