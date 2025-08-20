@@ -19,7 +19,7 @@ public class BaseTest {
 
     public void appiumServerStart() {
         service = new AppiumServiceBuilder().withAppiumJS(
-                        new File("/usr/local/lib/node_modules/appium/build/lib/main.js")) // Cambiar por la ruta donde se encuentra tu appium
+                        new File("/opt/homebrew/lib/node_modules/appium/build/lib/main.js")) // Cambiar por la ruta donde se encuentra tu appium
                 .withIPAddress("127.0.0.1")
                 .usingPort(4723)
                 .build();
@@ -27,15 +27,17 @@ public class BaseTest {
     }
 
     public void configureAndroidDriver() throws MalformedURLException {
-        appiumServerStart();
+        //appiumServerStart();
         UiAutomator2Options options = new UiAutomator2Options()
-                .setDeviceName("emulator-5554") // Cambia por el nombre del emulador activo
+                .setDeviceName("emulator-5554") // Cambia por el nombre del emulador
                 .setPlatformName("Android")
                 .setAutomationName("UiAutomator2")
-                 // ABRIR aplicación YouTube
-                 // ESPERAR hasta que cargue la pantalla principal
+                // ABRIR aplicación YouTube
+                // ESPERAR hasta que cargue la pantalla principal
                 .setAppPackage("com.google.android.youtube")
-                .setAppActivity("com.google.android.youtube.HomeActivity");
+                .setAppActivity("com.google.android.youtube.HomeActivity")
+                .setNewCommandTimeout(Duration.ZERO);
+
 
         androidDriver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
 
@@ -43,11 +45,11 @@ public class BaseTest {
         androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         // ESPERA EXPLÍCITA: Espera específicamente a que aparezca un resultado, se usa especificamente en el elemento
-        wait = new WebDriverWait(androidDriver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(androidDriver, Duration.ofSeconds(60));
     }
 
     public void tearDown() {
         androidDriver.quit();
-        service.stop();
+        //service.stop();
     }
 }
