@@ -27,14 +27,14 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.21.0</version>
+            <version>4.9.1</version>
         </dependency>
 
-        <!-- Appium -->
+        <!-- Appium Java Client 8.x -->
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>9.1.0</version>
+            <version>8.6.0</version>
         </dependency>
     </dependencies>
 
