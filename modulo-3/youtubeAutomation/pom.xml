@@ -23,12 +23,14 @@
             <scope>test</scope>
         </dependency>
 
+
         <!-- Selenium -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.9.1</version>
+            <version>4.12.1</version>
         </dependency>
+
 
         <!-- Appium Java Client 8.x -->
         <dependency>
