@@ -13,7 +13,7 @@ public class YouTubeTest extends BaseTest {
 
     @BeforeMethod
     public void beforeTest() throws MalformedURLException {
-        configureAndroidDriver();
+        configureAndroidDriver(true);
         youtubePage = new YouTubePage(driver);
     }
 

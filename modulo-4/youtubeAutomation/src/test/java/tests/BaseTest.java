@@ -14,17 +14,32 @@ public class BaseTest {
     protected AppiumDriver driver;
     protected AppiumDriverLocalService service;
 
-    protected void configureAndroidDriver() throws MalformedURLException {
-        UiAutomator2Options options = new UiAutomator2Options()
-                .setDeviceName("emulator-5554")
-                .setPlatformName("Android")
-                .setAutomationName("UiAutomator2")
-                .setAppPackage("com.google.android.youtube")
-                .setAppActivity("com.google.android.youtube.HomeActivity")
-                .amend("hideKeyboard",true)
-                .setNewCommandTimeout(Duration.ofSeconds(60));
+    protected void configureAndroidDriver(boolean isYoutube) throws MalformedURLException {
+        UiAutomator2Options options;
+        if (isYoutube) {
+             options = new UiAutomator2Options()
+                    .setDeviceName("emulator-5554")
+                    .setPlatformName("Android")
+                    .setAutomationName("UiAutomator2")
+                    .setAppPackage("com.google.android.youtube")
+                    .setAppActivity("com.google.android.youtube.HomeActivity")
+                    .amend("hideKeyboard",true)
+                    .setNewCommandTimeout(Duration.ofSeconds(60));
+        }
+        else {
+            options = new UiAutomator2Options()
+                    .setDeviceName("emulator-5554")
+                    .setPlatformName("Android")
+                    .setAutomationName("UiAutomator2")
+                    .setApp("./WikipediaSample.apk")
+                    .setAppPackage("org.wikipedia.alpha")
+                    .setAppActivity("org.wikipedia.main.MainActivity")
+                    .amend("hideKeyboard",true)
+                    .setNewCommandTimeout(Duration.ofSeconds(60));
+        }
+
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 }
