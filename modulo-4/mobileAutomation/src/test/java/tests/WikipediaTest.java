@@ -35,6 +35,7 @@ public class WikipediaTest extends BaseTest {
 
     @Test(dataProvider = "searchQueries")
     public void testWikipediaSearch(String searchQuery) {
+        logger.info("Running wikipedia test for search query: " + searchQuery);
         var results = wikipediaPage.search(searchQuery);
         Assert.assertFalse(results.isEmpty());
     }

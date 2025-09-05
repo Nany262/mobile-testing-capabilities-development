@@ -8,11 +8,13 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.logging.Logger;
 
 public class BaseTest {
 
     protected AppiumDriver driver;
     protected AppiumDriverLocalService service;
+    protected Logger logger = Logger.getLogger(BaseTest.class.getName());
 
     protected void configureAndroidDriver() throws MalformedURLException {
         UiAutomator2Options options = new UiAutomator2Options()

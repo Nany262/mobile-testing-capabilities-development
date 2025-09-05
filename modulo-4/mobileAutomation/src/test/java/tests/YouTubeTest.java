@@ -29,8 +29,10 @@ public class YouTubeTest extends BaseTest {
 
     @Test(dataProvider = "searchQueries")
     public void testSearchAndPlayVideo(String searchQuery) {
+        logger.info("Running youtube test for search query: " + searchQuery);
         youtubePage.searchVideo(searchQuery);
     }
+
 
     @DataProvider
     public Object[][] searchQueries() {
